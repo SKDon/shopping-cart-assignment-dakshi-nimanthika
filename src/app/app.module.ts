@@ -7,11 +7,12 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserLoginComponent } from './users/user-login/user-login.component';
 import { UserProfileComponent } from './users/user-profile/user-profile.component';
-import { AuthService } from './shared/services/auth.service';
+
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
     /* for development
@@ -22,6 +23,7 @@ export const createTranslateLoader = (http: HttpClient) => {
     );*/
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 };
+
 
 @NgModule({
     declarations: [AppComponent, UserLoginComponent, UserProfileComponent],
@@ -41,7 +43,6 @@ export const createTranslateLoader = (http: HttpClient) => {
         })
     ],
     providers: [
-      AuthService,
     ],
     bootstrap: [AppComponent]
 })
