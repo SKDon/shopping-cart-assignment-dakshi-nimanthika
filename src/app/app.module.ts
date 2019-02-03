@@ -1,49 +1,41 @@
-import { LayoutModule } from '@angular/cdk/layout';
-import { OverlayModule } from '@angular/cdk/overlay';
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule, NO_ERRORS_SCHEMA, APP_INITIALIZER } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserLoginComponent } from './users/user-login/user-login.component';
-import { UserProfileComponent } from './users/user-profile/user-profile.component';
+import { IndexModule } from './index/index.module';
+import { SharedModule } from './shared/shared.module';
+import { RouterModule } from '@angular/router';
+import { AppRoutes } from './app.routing';
+import { TranslateService } from './shared/services/translate.service';
+import { ProductModule } from './layouts/product/product.module';
+import { UserModule } from './layouts/user/user.module';
 
-// AoT requires an exported function for factories
-export const createTranslateLoader = (http: HttpClient) => {
-    /* for development
-    return new TranslateHttpLoader(
-        http,
-        '/start-javascript/sb-admin-material/master/dist/assets/i18n/',
-        '.json'
-    );*/
-    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-};
-
+/* to load and set en.json as the default application language */
+export function setupTranslateFactory(service: TranslateService): Function {
+	return () => service.use('en');
+}
 
 @NgModule({
-    declarations: [AppComponent, UserLoginComponent, UserProfileComponent],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        LayoutModule,
-        OverlayModule,
-        HttpClientModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: createTranslateLoader,
-                deps: [HttpClient]
-            }
-        })
-    ],
-    providers: [
-    ],
-    bootstrap: [AppComponent]
+	declarations: [ AppComponent ],
+	imports: [
+		BrowserModule,
+		BrowserAnimationsModule,
+		IndexModule,
+		ProductModule,
+		UserModule,
+		SharedModule,
+		RouterModule.forRoot(AppRoutes)
+	],
+	providers: [
+		TranslateService,
+		{
+			provide: APP_INITIALIZER,
+			useFactory: setupTranslateFactory,
+			deps: [ TranslateService ],
+			multi: true
+		}
+	],
+	bootstrap: [ AppComponent ],
+	schemas: [ NO_ERRORS_SCHEMA ]
 })
 export class AppModule {}

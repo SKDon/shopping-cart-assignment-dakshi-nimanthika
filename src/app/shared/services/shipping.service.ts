@@ -2,12 +2,12 @@ import {
   AngularFireList,
   AngularFireObject,
   AngularFireDatabase
-} from "angularfire2/database";
-import { Billing } from "./../models/billing";
-import { Injectable } from "@angular/core";
+} from 'angularfire2/database';
+import { Billing } from './../models/billing';
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class ShippingService {
   shippings: AngularFireList<Billing>;
@@ -21,12 +21,12 @@ export class ShippingService {
   }
 
   getshippings() {
-    this.shippings = this.db.list("shippings");
+    this.shippings = this.db.list('shippings');
     return this.shippings;
   }
 
   getshippingById(key: string) {
-    this.shipping = this.db.object("products/" + key);
+    this.shipping = this.db.object('products/' + key);
     return this.shipping;
   }
 
