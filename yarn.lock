@@ -107,6 +107,11 @@
     "@angular-devkit/core" "7.1.4"
     rxjs "6.3.3"
 
+"@angular-material-extensions/password-strength@3.4.1":
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/@angular-material-extensions/password-strength/-/password-strength-3.4.1.tgz#7cb59bdadd28f2f5dde1caa8aff4f02120983a02"
+  integrity sha512-TfUiSM5aCO7DkUuEqB6aiFWbqAlZcOdb2n8GhUT4M0kMg8MFQcLjBuLCLgjSvP4CdnsHZzGTJjcFq4/TbD8LTQ==
+
 "@angular/animations@^7.2.3":
   version "7.2.3"
   resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-7.2.3.tgz#4999bdc32962191d0d826a09d9f0f0bae7b37a62"
@@ -176,7 +181,7 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/fire@5.1.1":
+"@angular/fire@5.1.1", "@angular/fire@^5.1.1":
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/@angular/fire/-/fire-5.1.1.tgz#7ac02813a9b41be027c454f32c55bc50b572f0c7"
   integrity sha512-QfLVEhZYW3+3fh2d1z76/vab1GkLnEQWzFQK06D1ZaT8jZsVEdFMIPr7GSTJWAuOdqBRYq14iqzqEkJH3WHzig==
