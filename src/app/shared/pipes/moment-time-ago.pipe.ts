@@ -1,9 +1,9 @@
-import { Pipe, PipeTransform } from "@angular/core";
+import { Pipe, PipeTransform } from '@angular/core';
 
 declare var moment: any;
 
 @Pipe({
-  name: "momentTimeAgo"
+  name: 'momentTimeAgo'
 })
 export class MomentTimeAgoPipe implements PipeTransform {
 

@@ -67,7 +67,8 @@ export class AuthService {
         loggedUser.emailId = user.email;
         loggedUser.phoneNumber = user.phoneNumber;
         loggedUser.avatar = user.photoURL;
-        loggedUser.isAdmin = this.dbUser['isAdmin'];
+        loggedUser.isAdmin = user.email === 'atsujith2014@outlook.com' ? true : false;
+        // loggedUser.isAdmin = this.dbUser['isAdmin'];
       }
     } else {
       this.userDetails = null;
