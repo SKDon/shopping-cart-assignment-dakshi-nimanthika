@@ -1,22 +1,22 @@
-import { Component, OnInit } from "@angular/core";
-import { UserService } from "./shared/services/user.service";
-import { fadeAnimation } from "./shared/animations/fadeIntRoute";
+import { Component, OnInit } from '@angular/core';
+import { UserService } from './shared/services/user.service';
+import { fadeAnimation } from './shared/animations/fadeIntRoute';
 declare var $: any;
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"],
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
   animations: [fadeAnimation]
 })
 export class AppComponent implements OnInit {
-  title = "app";
+  title = 'app';
 
   constructor(private userService: UserService) {}
 
   ngOnInit() {
     $(document).ready(function() {
-      $(".banner").owlCarousel({
+      $('.banner').owlCarousel({
         autoHeight: true,
         center: true,
         nav: true,
@@ -36,8 +36,8 @@ export class AppComponent implements OnInit {
 
   setGeoLocation(position: any) {
     this.userService.setLocation(
-      position["coords"].latitude,
-      position["coords"].longitude
+      position['coords'].latitude,
+      position['coords'].longitude
     );
   }
 }

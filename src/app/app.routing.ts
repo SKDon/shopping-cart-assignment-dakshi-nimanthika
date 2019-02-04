@@ -18,10 +18,6 @@ export const AppRoutes: Routes = [
 			{
 				path: 'users',
 				loadChildren: './layouts/user/user.module#UserModule'
-			},
-			{
-				path: 'task-board',
-				loadChildren: './layouts/task-board/task-board.module#TaskBoardModule'
 			}
 		]
 	},
