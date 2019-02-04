@@ -15,7 +15,7 @@ declare var $: any;
 export class LoginComponent implements OnInit {
 	user = {
 		emailId: '',
-		loginPassword: ''
+    loginPassword: ''
 	};
 
 	errorInUserCreate = false;

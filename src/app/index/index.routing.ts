@@ -1,17 +1,17 @@
-import { LoginComponent } from "./login/login.component";
-import { Routes } from "@angular/router";
-import { IndexComponent } from "./index.component";
+import { LoginComponent } from './login/login.component';
+import { Routes } from '@angular/router';
+import { IndexComponent } from './index.component';
 
 export const IndexRoutes: Routes = [
   {
-    path: "",
+    path: '',
     children: [
       {
-        path: "",
+        path: '',
         component: IndexComponent
       },
       {
-        path: "login",
+        path: 'login',
         component: LoginComponent
       }
     ]
