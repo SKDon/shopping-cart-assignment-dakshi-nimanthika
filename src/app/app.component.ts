@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './shared/services/user.service';
 import { fadeAnimation } from './shared/animations/fadeIntRoute';
+import { Observable } from 'rxjs';
 declare var $: any;
 
 @Component({
@@ -12,9 +13,13 @@ declare var $: any;
 export class AppComponent implements OnInit {
   title = 'app';
 
+  user: Observable<any>;
+  product: Observable<any>;
+
   constructor(private userService: UserService) {}
 
   ngOnInit() {
+
     $(document).ready(function() {
       $('.banner').owlCarousel({
         autoHeight: true,
@@ -40,4 +45,5 @@ export class AppComponent implements OnInit {
       position['coords'].longitude
     );
   }
+
 }

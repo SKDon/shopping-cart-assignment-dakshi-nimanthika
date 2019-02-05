@@ -150,7 +150,8 @@ export class ProductService {
 	// returning LocalCarts Product Count
 	calculateLocalCartProdCounts() {
 		this.navbarCartCount = this.getLocalCartProducts().length;
-	}
+  }
+
 }
 
 export class FavouriteProduct {

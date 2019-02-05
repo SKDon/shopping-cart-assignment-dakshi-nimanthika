@@ -1,8 +1,11 @@
+import { User } from './../../../shared/models/user';
+// import { Product } from 'src/app/shared/models/product';
 import { Product } from '../../../shared/models/product';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../../shared/services/product.service';
 import { ToastrService } from 'src/app/shared/services/toastr.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 @Component({
 	selector: 'app-product-detail',
 	templateUrl: './product-detail.component.html',
@@ -10,17 +13,26 @@ import { ToastrService } from 'src/app/shared/services/toastr.service';
 })
 export class ProductDetailComponent implements OnInit, OnDestroy {
 	private sub: any;
-	product: Product;
+  product: Product;
+  loggedUser: User;
+
+  // selectedProductId: string;
+  // ratings: Observable<any>;
+  // avgRating: Observable<any>;
 
 	constructor(
 		private route: ActivatedRoute,
-		private productService: ProductService,
+    private productService: ProductService,
+    private authService: AuthService,
 		private toastrService: ToastrService
 	) {
 		this.product = new Product();
 	}
 
 	ngOnInit() {
+
+    this.loggedUser = this.authService.getLoggedInUser();
+
 		this.sub = this.route.params.subscribe((params) => {
 			const id = params['id']; // (+) converts string 'id' to a number
 			this.getProductDetail(id);
@@ -42,7 +54,10 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 				this.toastrService.error('Error while fetching Product Detail', error);
 			}
 		);
-	}
+  }
+
+
+
 
 	addToCart(product: Product) {
 		this.productService.addToCart(product);
@@ -50,5 +65,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
 	ngOnDestroy() {
 		this.sub.unsubscribe();
-	}
+  }
+
 }

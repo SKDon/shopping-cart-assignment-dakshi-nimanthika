@@ -50,6 +50,10 @@
               <th scope="row">Product Added on</th>
               <td>{{product.productAdded * 1000 | date}}</td>
             </tr>
+            <tr>
+                <!-- <star-review [productId]="product.productId" *ngFor="let user of users" [userId]="user.uid"></star-review> -->
+                <app-star-review [productId]='product.productId' [userId]='loggedUser.$key'></app-star-review>
+            </tr>
           </tbody>
         </table>
       </div>
