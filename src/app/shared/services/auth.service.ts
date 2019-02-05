@@ -99,4 +99,17 @@ export class AuthService {
       new firebase.auth.GoogleAuthProvider()
     );
   }
+
+  signInWithFacebook() {
+    return this.firebaseAuth.auth.signInWithPopup(
+      new firebase.auth.FacebookAuthProvider()
+    );
+  }
+
+  signInWithGithub() {
+    return this.firebaseAuth.auth.signInWithPopup(
+      new firebase.auth.GithubAuthProvider()
+    )
+  }
+
 }

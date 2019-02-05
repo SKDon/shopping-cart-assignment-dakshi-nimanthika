@@ -10,6 +10,7 @@ import { TranslateService } from './shared/services/translate.service';
 import { ProductModule } from './layouts/product/product.module';
 import { UserModule } from './layouts/user/user.module';
 
+
 /* to load and set en.json as the default application language */
 export function setupTranslateFactory(service: TranslateService): Function {
 	return () => service.use('en');
@@ -18,7 +19,7 @@ export function setupTranslateFactory(service: TranslateService): Function {
 @NgModule({
 	declarations: [ AppComponent ],
 	imports: [
-		BrowserModule,
+    BrowserModule,
 		BrowserAnimationsModule,
 		IndexModule,
 		ProductModule,

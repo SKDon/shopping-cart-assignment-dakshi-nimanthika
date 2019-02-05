@@ -10,9 +10,8 @@ import { map } from 'rxjs/operators';
 })
 export class StarReviewComponent implements OnInit {
 
-  @Input() userId;
   @Input() productId;
-
+  
   stars: Observable<any>;
   avgRating: Observable<any>;
 
@@ -21,14 +20,14 @@ export class StarReviewComponent implements OnInit {
   ngOnInit() {
     this.stars = this.starService.getProductStars(this.productId);
 
-    this.avgRating = this.stars.pipe(map(arr => {
+    this.avgRating = this.stars.pipe(map(arr  => {
       const ratings = arr.map(v => v.value);
       return ratings.length ? ratings.reduce((total, val) => total + val) / arr.length : 'not reviewed';
     }));
   }
 
   starHandler(value) {
-    this.starService.setStar(this.userId, this.productId, value);
+    this.starService.setStar(this.productId, value);
   }
 
 }

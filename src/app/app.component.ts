@@ -13,9 +13,6 @@ declare var $: any;
 export class AppComponent implements OnInit {
   title = 'app';
 
-  user: Observable<any>;
-  product: Observable<any>;
-
   constructor(private userService: UserService) {}
 
   ngOnInit() {

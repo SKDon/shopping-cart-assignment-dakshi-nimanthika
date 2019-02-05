@@ -1,4 +1,3 @@
-<h3>Average Rating</h3>
 
 {{ avgRating | async }}
 
@@ -6,12 +5,10 @@
 <h3>Reviews</h3>
 <div *ngFor="let star of stars | async">
 
-  {{ star.userId }} gave {{ star.productId }} {{ star.value }} stars
+  {{ star.productId }} {{ star.value }} stars
 
 </div>
 
-
-<h3>Post your Review</h3>
 
 <fieldset class="rating">
   <ng-container  *ngFor="let num of [5, 4, 3, 2, 1]">

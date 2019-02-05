@@ -97,5 +97,37 @@ export class LoginComponent implements OnInit {
 			.catch((err) => {
 				this.toastService.error('Error Occured', 'Please try again later');
 			});
+  }
+  
+  signInWithFacebook() {
+		this.authService
+			.signInWithFacebook()
+			.then((res) => {
+				if (res.additionalUserInfo.isNewUser) {
+					this.userService.createUser(res.additionalUserInfo.profile);
+				}
+				const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+				location.reload();
+				this.router.navigate(['/']);
+			})
+			.catch((err) => {
+				this.toastService.error('Error Occured', 'Please try again later');
+			});
+  }
+  
+  signInWithGithub() {
+		this.authService
+			.signInWithGithub()
+			.then((res) => {
+				if (res.additionalUserInfo.isNewUser) {
+					this.userService.createUser(res.additionalUserInfo.profile);
+				}
+				const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+				location.reload();
+				this.router.navigate(['/']);
+			})
+			.catch((err) => {
+				this.toastService.error('Error Occured', 'Please try again later');
+			});
 	}
 }

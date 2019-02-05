@@ -5,7 +5,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../../shared/services/product.service';
 import { ToastrService } from 'src/app/shared/services/toastr.service';
-import { AuthService } from 'src/app/shared/services/auth.service';
 @Component({
 	selector: 'app-product-detail',
 	templateUrl: './product-detail.component.html',
@@ -14,7 +13,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class ProductDetailComponent implements OnInit, OnDestroy {
 	private sub: any;
   product: Product;
-  loggedUser: User;
+
 
   // selectedProductId: string;
   // ratings: Observable<any>;
@@ -23,7 +22,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 	constructor(
 		private route: ActivatedRoute,
     private productService: ProductService,
-    private authService: AuthService,
 		private toastrService: ToastrService
 	) {
 		this.product = new Product();
@@ -31,7 +29,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
 	ngOnInit() {
 
-    this.loggedUser = this.authService.getLoggedInUser();
 
 		this.sub = this.route.params.subscribe((params) => {
 			const id = params['id']; // (+) converts string 'id' to a number
@@ -55,7 +52,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 			}
 		);
   }
-
 
 
 

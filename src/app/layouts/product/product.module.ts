@@ -19,6 +19,7 @@ import { FavouriteProductsComponent } from './favourite-products/favourite-produ
 import { CartProductsComponent } from './cart-products/cart-products.component';
 import { CartCalculatorComponent } from './cart-calculator/cart-calculator.component';
 import { StarReviewComponent } from './star-review/star-review.component';
+import { ProductSearchComponent } from './product-search/product-search.component';
 
 @NgModule({
 	imports: [CommonModule, RouterModule.forChild(ProductRoutes), SharedModule, CheckoutModule],
@@ -31,7 +32,8 @@ import { StarReviewComponent } from './star-review/star-review.component';
 		FavouriteProductsComponent,
 		CartProductsComponent,
 		CartCalculatorComponent,
-		StarReviewComponent
+		StarReviewComponent,
+		ProductSearchComponent
 	],
 	exports: [BestProductComponent]
 })

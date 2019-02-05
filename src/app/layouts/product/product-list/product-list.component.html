@@ -17,11 +17,10 @@
           <option *ngFor="let brand of brands" [ngValue]="brand">{{brand}}</option>
         </select>
       </div>
-      <!-- <ul class="list-group">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Morbi leo risus</li>
-      </ul> -->
+      <div class="form-group">
+        <label for="search">Search:</label>
+        <app-product-search></app-product-search>
+      </div>
     </div>
     <div class="col-md-9">
 

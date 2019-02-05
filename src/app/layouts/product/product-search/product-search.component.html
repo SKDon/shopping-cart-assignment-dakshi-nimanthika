@@ -1,0 +1,9 @@
+<form>
+  <input type="search" name="query" [(ngModel)]="query" (keyup.enter)="search()">
+  <!-- <button type="button" (click)="search()">Search</button> -->
+  <div class="float-left">
+    <button type="button" class="btn btn-primary waves-light" (click)="search()">
+      Search
+    </button>
+  </div>
+</form>
